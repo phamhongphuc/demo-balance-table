@@ -1,5 +1,6 @@
 import { shallowRef } from 'vue';
 import { Erc20 } from './erc20/erc20.type';
+// import { web3 } from './web3/web3';
 
 type TokenData = {
   address: string;
@@ -24,6 +25,7 @@ const addresses = shallowRef([
 const tokenInput = shallowRef('');
 const addToken = () => {
   console.debug('addToken');
+  // console.log(web3);
 
   tokens.value = [
     ...tokens.value,
