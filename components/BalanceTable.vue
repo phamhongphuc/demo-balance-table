@@ -2,7 +2,7 @@
   <div
     class="grid gap-3 p-4 w-fit"
     :style="{
-      gridTemplateColumns: `230px repeat(${tokens.length + 1}, 100px) 32px`,
+      gridTemplateColumns: `230px repeat(${tokens.length + 1}, 120px) 32px`,
     }"
   >
     <div>
@@ -18,6 +18,7 @@
       :key="tokenIndex"
       class="bg-gray-300"
       :closable="token.instance"
+      @close="removeToken(token)"
     />
 
     <div
