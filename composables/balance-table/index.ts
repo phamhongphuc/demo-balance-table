@@ -23,26 +23,22 @@ const addresses = shallowRef([
 ]);
 
 const tokenInput = shallowRef('');
-const addToken = () => {
+const addToken = async () => {
   console.debug('addToken');
 
   try {
-    const instance = useErc20(tokenInput.value);
-    console.log(instance);
-  } catch (e) {
-    console.debug('eee', e);
-  }
+    const address = tokenInput.value;
+    const instance = useErc20(address);
+    const symbol = await instance.methods.symbol().call();
 
-  tokens.value = [
-    ...tokens.value,
-    {
-      address: '0xfEe25D046909B450DeD5dBc7e1Dc781c8b026f0a',
-      symbol: 'ABC',
-      instance: null,
-    },
-  ];
+    tokens.value = [...tokens.value, { address, symbol, instance }];
+  } catch (e) {
+    //
+  }
 };
-const removeToken = (token: TokenData) => {};
+const removeToken = (token: TokenData) => {
+  tokens.value = tokens.value.filter((t) => t.address === token.address);
+};
 
 const addressInput = shallowRef('');
 const addAddress = () => {
