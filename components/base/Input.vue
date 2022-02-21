@@ -19,6 +19,6 @@ const emits = defineEmits(['update:modelValue']);
 <style lang="scss" scoped>
 input {
   @apply border border-gray-600 rounded;
-  @apply h-8 px-3 text-sm;
+  @apply h-8 px-2 text-sm;
 }
 </style>

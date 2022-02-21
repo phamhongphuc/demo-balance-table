@@ -5,7 +5,12 @@
       gridTemplateColumns: `230px repeat(${tokens.length + 1}, 100px) 32px`,
     }"
   >
-    <BaseInput v-model="tokenInput" />
+    <div>
+      <BaseInput v-model="tokenInput" class="w-full" />
+      <div v-if="tokenInputError" class="text-red-500">
+        {{ tokenInputError }}
+      </div>
+    </div>
     <BaseButton text="Add Token" @click="addToken" />
     <BaseLabel
       v-for="(token, tokenIndex) in tokens"
@@ -22,8 +27,13 @@
       }"
     />
 
-    <BaseInput v-model="addressInput" class="col-start-1" />
-    <BaseButton text="Add Wallet" />
+    <div class="col-start-1">
+      <BaseInput v-model="addressInput" class="w-full" />
+      <div v-if="addressInputError" class="text-red-500">
+        {{ addressInputError }}
+      </div>
+    </div>
+    <BaseButton text="Add Wallet" @click="addAddress" />
     <BaseLabel
       v-for="token in tokens"
       :text="token.symbol"
@@ -42,7 +52,12 @@
         :key="`${tokenIndex}-${addressIndex}`"
         class="bg-gray-300"
       />
-      <BaseButton text="✕" color="red" class="!p-0" />
+      <BaseButton
+        text="✕"
+        color="red"
+        class="!p-0"
+        @click="removeAddress(address)"
+      />
     </template>
   </div>
 </template>
@@ -51,11 +66,13 @@
 const {
   addresses,
   addressInput,
+  addressInputError,
   addAddress,
   removeAddress,
 
   tokens,
   tokenInput,
+  tokenInputError,
   addToken,
   removeToken,
 } = useBalanceTable();
