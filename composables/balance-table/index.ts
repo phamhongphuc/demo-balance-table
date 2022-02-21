@@ -1,5 +1,5 @@
 import { shallowRef } from 'vue';
-// import { useErc20 } from './erc20/erc20.hook';
+import { useErc20 } from './erc20/erc20.hook';
 import { Erc20 } from './erc20/erc20.type';
 
 type TokenData = {
@@ -27,10 +27,10 @@ const addToken = () => {
   console.debug('addToken');
 
   try {
-    // const instance = useErc20(tokenInput.value);
-    // console.log(instance);
+    const instance = useErc20(tokenInput.value);
+    console.log(instance);
   } catch (e) {
-    console.log(e);
+    console.debug('eee', e);
   }
 
   tokens.value = [

@@ -1,6 +1,5 @@
 import { defineNuxtConfig } from 'nuxt3';
 import inject from '@rollup/plugin-inject';
-import Inspect from 'vite-plugin-inspect';
 
 export default defineNuxtConfig({
   buildModules: ['@nuxtjs/tailwindcss'],
@@ -24,8 +23,16 @@ export default defineNuxtConfig({
       inject({
         Buffer: ['buffer', 'Buffer'],
       }),
-      Inspect(),
     ],
+    resolve: {
+      alias: {
+        http: 'http-browserify',
+        https: 'https-browserify',
+        stream: 'stream-browserify',
+        util: 'util',
+        zlib: 'browserify-zlib',
+      },
+    },
   },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',

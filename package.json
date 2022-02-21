@@ -7,6 +7,11 @@
   },
   "dependencies": {
     "bn.js": "^5.2.0",
+    "browserify-zlib": "^0.2.0",
+    "http-browserify": "^1.7.0",
+    "https-browserify": "^1.0.0",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.4",
     "web3": "^1.7.0",
     "web3-core": "^1.7.0",
     "web3-utils": "^1.7.0"

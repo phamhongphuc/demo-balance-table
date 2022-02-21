@@ -2,7 +2,7 @@
   <div
     class="grid gap-3 p-4 w-fit"
     :style="{
-      gridTemplateColumns: `270px repeat(${tokens.length + 1}, 100px) 32px`,
+      gridTemplateColumns: `230px repeat(${tokens.length + 1}, 100px) 32px`,
     }"
   >
     <BaseInput v-model="tokenInput" />
