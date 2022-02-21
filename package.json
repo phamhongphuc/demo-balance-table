@@ -6,6 +6,7 @@
     "start": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "bignumber.js": "^9.0.2",
     "bn.js": "^5.2.0",
     "browserify-zlib": "^0.2.0",
     "http-browserify": "^1.7.0",

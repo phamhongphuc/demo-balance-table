@@ -48,7 +48,7 @@
       />
       <BaseLabel
         v-for="(token, tokenIndex) in tokens"
-        text="123"
+        :text="getBalance(address, token)"
         :key="`${tokenIndex}-${addressIndex}`"
         class="bg-gray-300"
       />
@@ -75,5 +75,7 @@ const {
   tokenInputError,
   addToken,
   removeToken,
+
+  getBalance,
 } = useBalanceTable();
 </script>
