@@ -1,5 +1,5 @@
 import { shallowRef } from 'vue';
-import { Erc20 } from './web3/erc20.type';
+import { Erc20 } from './erc20/erc20.type';
 
 type TokenData = {
   address: string;
