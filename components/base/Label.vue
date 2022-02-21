@@ -1,8 +1,6 @@
 <template>
   <div class="label">
-    <span class="flex-1 text-center" :class="{ 'pl-5': closable }">
-      {{ text }}
-    </span>
+    {{ text }}
     <div v-if="closable" class="label__button" @click="$emit('close')">✕</div>
   </div>
 </template>
@@ -24,13 +22,15 @@ const emits = defineEmits(['close']);
 
 <style lang="scss" scoped>
 .label {
-  @apply flex items-center justify-center;
   @apply rounded;
-  @apply h-8 px-1.5 text-sm;
+  @apply leading-8 h-8 text-sm;
+  @apply px-6 truncate text-center;
   @apply transition-all;
+  @apply relative;
 
   &__button {
-    @apply w-5 h-5 rounded;
+    @apply absolute right-1.5 inset-y-0 my-auto;
+    @apply w-5 h-5 leading-5 rounded;
     @apply ml-auto text-center;
     @apply transition-all cursor-pointer;
     @apply hover:bg-[#00000022] active:bg-[#00000033];

@@ -39,7 +39,7 @@
       v-for="token in tokens"
       :text="token.symbol"
       :key="token.address"
-      class="bg-white"
+      class="bg-white !px-0"
     />
 
     <template v-for="(address, addressIndex) in addresses" :key="addressIndex">
