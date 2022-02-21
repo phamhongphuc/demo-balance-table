@@ -1,5 +1,5 @@
 import { ContractOptions } from 'web3-eth-contract';
-import { NonPayableTransactionObject, BaseContract } from './types';
+import { NonPayableTransactionObject, BaseContract } from '../web3/types';
 
 export interface Erc20 extends BaseContract {
   constructor(
